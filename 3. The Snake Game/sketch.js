@@ -13,7 +13,7 @@ var ss = 00;
 
 var myTimer;
 
-function startTimer(){
+function startTimer() {
     myTimer = setInterval(function () {
         if (ss == 60) {
             ss = 0;
@@ -24,13 +24,12 @@ function startTimer(){
             mm = 0;
         }
         ss++;
-        document.getElementById("time").innerText = hh+":"+mm+":"+ss;
+        document.getElementById("time").innerText = hh + ":" + mm + ":" + ss;
     }, 1000);
 }
 
 function setup() {
     scoreBoard = document.getElementById("score");
-    scoreBoard.innerText = "Score : " + score;
     createCanvas(600, 600);
     snake = new Snake();
     w = floor(width / size);
@@ -43,6 +42,7 @@ function setup() {
 
 function draw() {
     if (count >= 0) {
+        scoreBoard.innerText = "Score : " + score;
         noLoop();
         setTimeout(function () {
             background(155, 148, 181, 180);
@@ -84,7 +84,6 @@ function keyPressed() {
             break;
         case RIGHT_ARROW: snake.direction(1, 0);
             break;
-        case ENTER: snake.grow();
     }
 }
 
@@ -92,8 +91,9 @@ function mousePressed() {
     if (restart) {
         snake = new Snake();
         count = 4;
+        score = 0;
         loop();
-        ss=mm=hh=0;
+        ss = mm = hh = 0;
         startTimer();
     }
 }

@@ -32,11 +32,6 @@ class Snake {
         this.snakeDirection.y = y;
     }
 
-    grow(){
-        this.tails.push(this.snakePosition);
-
-    }
-
     eat(food) {
         if (this.snakePosition.x == food.x && this.snakePosition.y == food.y) {
             this.tails.push(this.snakePosition);
