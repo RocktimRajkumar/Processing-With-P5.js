@@ -50,6 +50,19 @@ function draw() {
 
     var shiftDown = false;
 
+    if (alien.length == 0) {
+        noLoop();
+        background(155, 148, 181, 180);
+        rectMode(CORNER);
+        textSize(32);
+        textAlign(CENTER, CENTER);
+        fill(204, 0, 0);
+        textStyle(BOLD);
+        text('You Won !', 0, -20, 1000, 700);
+        textSize(20);
+        text('Click to play again', 0, 20, 1000, 700);
+    }
+
     for (var i = 0; i < alien.length; i++) {
         alien[i].show();
         alien[i].move();
